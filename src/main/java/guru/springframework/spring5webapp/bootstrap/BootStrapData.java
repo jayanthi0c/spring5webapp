@@ -3,7 +3,7 @@ package guru.springframework.spring5webapp.bootstrap;
 import guru.springframework.spring5webapp.Entities.Author;
 import guru.springframework.spring5webapp.Entities.Book;
 import guru.springframework.spring5webapp.Entities.Publisher;
-import guru.springframework.spring5webapp.Entities.PublisherRepository;
+import guru.springframework.spring5webapp.repositories.PublisherRepository;
 import guru.springframework.spring5webapp.repositories.AuthorRepository;
 import guru.springframework.spring5webapp.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -45,6 +45,9 @@ public class BootStrapData implements CommandLineRunner {
         penguin.getBooks().add(melluha);
         amish.getBooks().add(melluha);
         melluha.getAuthors().add(amish);
+        melluha.setPublisher(penguin);
+
+        life.setPublisher(holands);
 
         authorrepository.save(amish);
         bookrepository.save(melluha);
